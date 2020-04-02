@@ -26,11 +26,11 @@ public class MySessionHandler extends StompSessionHandlerAdapter {
 
     @Override
     public Type getPayloadType(StompHeaders headers) {
-        return Greeting.class;
+        return String.class;
     }
 
     @Override
     public void handleFrame(StompHeaders headers, Object payload) {
-        log.info("Received: {}", ((Greeting) payload).getContent());
+        log.info("Received: {}", (String) payload);
     }
 }

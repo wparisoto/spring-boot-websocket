@@ -26,6 +26,6 @@ public class TimeSender {
         String time = LocalTime.now().format(TIME_FORMAT);
 
         log.info("Time broadcast: {}", time);
-        broker.convertAndSend("/topic/greetings", new Greeting("Current time is " + time));
+        broker.convertAndSend("/topic/greetings", "Current time is " + time);
     }
 }
