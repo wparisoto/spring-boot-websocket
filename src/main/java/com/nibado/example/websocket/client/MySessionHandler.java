@@ -1,25 +1,25 @@
 package com.nibado.example.websocket.client;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nibado.example.impressao.Impressora;
-import com.nibado.example.websocket.service.Greeting;
-import com.nibado.example.websocket.service.RetornoImpressao;
+import java.lang.reflect.Type;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.messaging.simp.stomp.StompSessionHandlerAdapter;
 
-import java.lang.reflect.Type;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nibado.example.impressao.Impressora;
+import com.nibado.example.websocket.service.RetornoImpressao;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class MySessionHandler extends StompSessionHandlerAdapter {
     @Override
     public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
-    	session.subscribe("/topic/5981", this);
+    	session.subscribe("/queue/5981", this);
     	//session.subscribe("/topic/greetings", this);
         //session.send("/app/hello", "{\"name\":\"Client\"}".getBytes());
 

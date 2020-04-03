@@ -7,7 +7,6 @@ import java.util.Scanner;
 import javax.websocket.ContainerProvider;
 import javax.websocket.WebSocketContainer;
 
-import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.converter.StringMessageConverter;
 import org.springframework.web.socket.client.WebSocketClient;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
@@ -35,7 +34,7 @@ public class SockJsCliente {
 		WebSocketStompClient stompClient = getClient();
 
 		//String url = "ws://127.0.0.1:8080/hello";
-		String url = "wss://hml.desbravadorweb.com.br:443/realtime";
+		String url = "wss://hml.desbravadorweb.com.br:443/printService";
 		stompClient.connect(url, new MySessionHandler());
 
 		new Scanner(System.in).nextLine();
